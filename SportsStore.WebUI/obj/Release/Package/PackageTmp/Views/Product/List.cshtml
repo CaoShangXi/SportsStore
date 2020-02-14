@@ -1,0 +1,17 @@
+﻿@* 要使用某个类的功能，在此处添加或在视图使用@using表达式添加命名空间都可以 *@
+@*@using SportsStore.WebUI.HtmlHelpers*@
+@model SportsStore.WebUI.Models.ProductsListViewModel
+
+@{
+    ViewBag.Title = "Products";
+}
+
+@foreach (var p in Model.Products)
+{
+    //调用分部视图，第一个参数为分部视图的名字，第二个参数为传递给分部视图的模型
+    @Html.Partial("ProductSummary",p);
+}
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x,category=Model.CurrentCategory }))
+</div>
+

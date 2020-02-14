@@ -1,0 +1,34 @@
+﻿#####为项目安装工具的命令
+1. 安装Ninject到SportsStore.WebUI项目
+Install-Package Ninject -version 3.0.1.10 -projectname SportsStore.WebUI
+Install-Package Ninject.web.Common -version 3.0.0.7 -projectname SportsStore.WebUI
+Install-Package Ninject.MVC3 -version 3.0.0.6 -projectname SportsStore.WebUI
+
+2. 安装Ninject到SportsStore.UnitTests项目
+Install-Package Ninject -version 3.0.1.10 -projectname SportsStore.UnitTests
+Install-Package Ninject.web.Common -version 3.0.0.7 -projectname SportsStore.UnitTests
+Install-Package Ninject.MVC3 -version 3.0.0.6 -projectname SportsStore.UnitTests
+
+3. 安装Moq到SportsStore.WebUI项目
+Install-Package Moq -version 4.1.1309.1617 -projectname SportsStore.WebUI
+
+4. 安装Moq到SportsStore.UnitTests项目
+Install-Package Moq -version 4.1.1309.1617 -projectname SportsStore.UnitTests
+
+5. 安装mvc到SportsStore.Domain项目
+Install-Package Microsoft.Aspnet.Mvc -version 5.0.0 -projectname SportsStore.Domain
+
+6. 安装mvc到SportsStore.UnitTests项目
+Install-Package Microsoft.Aspnet.Mvc -version 5.0.0 -projectname SportsStore.UnitTests
+
+5. 安装mvc到SportsStore.WebUI项目
+Install-Package Microsoft.Aspnet.Mvc -version 5.0.0 -projectname SportsStore.WebUI
+
+7. 安装EntityFramework到SportsStore.Domain项目
+Install-Package EntityFramework -projectname SportsStore.Domain
+
+8. 安装EntityFramework到SportsStore.WebUI项目
+Install-Package EntityFramework -projectname SportsStore.WebUI
+
+9. 安装客户端验证所需的JS文件到SportsStore.WebUI项目
+Install-Package Microsoft.jQuery.Unobtrusive.Validation -version 3.0.0.0 -projectname SportsStore.WebUI

@@ -1,0 +1,18 @@
+﻿@model SportsStore.Domain.Entities.Cart
+@*  类名hidden-xs表示宽度大于768像素的窗口显示该元素*@
+<div class="navbar-right hidden-xs" style="margin-right: 0px;">
+    @Html.ActionLink("Checkout", "Index", "Cart",
+    new { returnUrl = Request.Url.PathAndQuery },
+    new { @class = "btn btn-default navbar-btn" })
+</div>
+@* visible-xs表示宽度小于768像素的窗口显示该元素 *@
+<div class="navbar-right visible-xs">
+    <a href=@Url.Action("Index","Cart",new { returnUrl=Request.Url.PathAndQuery}) class="btn btn-default navbar-btn">
+         <span class="glyphicon glyphicon-shopping-cart"></span>
+    </a>
+</div>
+<div class="navbar-text navbar-right">
+    <b class="hidden-xs">Your cart:</b>
+    @Model.Lines.Sum(x => x.Quantity) item(s),
+    @Model.ComputeTotalValue().ToString("c")
+</div>

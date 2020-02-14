@@ -1,0 +1,43 @@
+﻿@* 布局页，提供一个公共的视图模板给其他视图使用 *@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/ErrorStyle.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    <style>
+        .navbar-right {
+            float: right !important; /*important!; 这个选项代表 只有IE7以上，FF，opera ，chorme等流览器可以识别这些属性*/
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <a class="navbar-brand" href="#">
+            <span class="hidden-xs">SPORTS STORE</span>
+            <div class="visible-xs">SPORTS</div>
+            <div class="visible-xs">STORE</div>
+        </a>
+        @* 加载分部视图 *@
+        @Html.Action("Summary", "Cart")
+    </div>
+    <div class="visible-xs">
+        @Html.Action("Menu", "Nav", new { horizontalLayout = true })
+    </div>
+    <div class="row panel" style="width:100%;">
+        <div class="col-sm-3 hidden-xs">
+            @* 加载分部视图 *@
+            @Html.Action("Menu", "Nav")
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            @* 对@RenderBody()方法的调用会将动作方法所指定的视图内容插入到布局标记之中 *@
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

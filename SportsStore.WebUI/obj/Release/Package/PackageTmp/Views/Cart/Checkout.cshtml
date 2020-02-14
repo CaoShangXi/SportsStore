@@ -1,0 +1,38 @@
+﻿@model SportsStore.Domain.Entities.ShippingDetails
+@{
+    ViewBag.Title = "ShportStore：Checkout";
+}
+<h2>Check out now</h2>
+<p>Please enter your details,and we'll ship your goods right away!</p>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()//显示模型类的错误验证信息
+    <h3>Ship to</h3>
+    <div class="form-group">
+        <label>Name:</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <h3>Address</h3>
+    foreach (var property in ViewData.ModelMetadata.Properties)
+    {
+        if (property.PropertyName != "Name" && property.PropertyName != "GifWrap")
+        {
+            <div class="form-group">
+                @* DisplayName属性主要显示的是类的属性上面Display注解的值 *@
+                <label>@(property.DisplayName??property.PropertyName):</label>
+                @Html.TextBox(property.PropertyName,null, new { @class = "form-control" })
+            </div>
+        }
+    }
+    <h3>OPtions</h3>
+    <div class="checkbox">
+        <label>
+            @Html.EditorFor(x => x.GifWrap)
+            Gift wrap these items
+        </label>
+    </div>
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Complete order" />
+    </div>
+}
+

@@ -1,0 +1,22 @@
+﻿@* 移动版分部视图，是嵌入到另一个视图中的代码片段 *@
+@model SportsStore.Domain.Entities.Product
+<div data-role="collapsible" data-collapsed="false" data-content-theme="c">
+    <h2>@Model.Name</h2>
+   <div class="ui-grid-b">
+        <div class="ui-block-a">
+            @Model.Description
+        </div>
+        <div class="ui-block-b">
+            <strong>@Model.Price.ToString("c")@*根据服务器的语言类型将数值转换成对应的货币形式，如服务器语言为中文时货币为￥*@</strong>
+        </div>
+        <div class="ui-block-c">
+            @using (Html.BeginForm("AddToCart", "Cart"))
+            {
+                @Html.HiddenFor(x => x.ProductID)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" data-inline="true" data-mini="true" value="Add to cart" />
+            }
+        </div>
+    </div>
+</div>
+
